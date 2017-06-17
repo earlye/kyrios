@@ -1,0 +1,7 @@
+description: "A build system often used for C++ projects"
+webPage: https://cmake.org/
+platforms:
+  Darwin:
+    dependencies: [ homebrew ]
+    packageManager: homebrew
+    packageName: cmake

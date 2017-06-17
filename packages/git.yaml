@@ -1,0 +1,7 @@
+description: A widely-used revision control system
+webPage: https://git-scm.com/
+test: git --version
+platforms:
+  generic:
+    packageManager: shell
+    isInstalled: git --version > /dev/null

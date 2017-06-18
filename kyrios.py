@@ -23,6 +23,7 @@ class packageManagerShell(packageManager):
     
     def installPackage(self,packageName,package,context,platformConfig):
         if self.isInstalled(packageName,package,context,platformConfig):
+            print("DEBUG: package '{}' is installed".format(packageName))
             return
         print("DEBUG: packageManagerShell: installing package '{}'".format(packageName))
 
@@ -35,6 +36,7 @@ class packageManagerHomebrew(packageManager):
     
     def installPackage(self,packageName,package,context,platformConfig):
         if self.isInstalled(packageName,package,context,platformConfig):
+            print("DEBUG: package '{}' is installed".format(packageName))
             return
         print("DEBUG: packageManagerHomebrew: installing package '{}'".format(packageName))
         managedPackageName = platformConfig['packageName']
@@ -50,16 +52,34 @@ class packageManagerNpm(packageManager):
     
     def installPackage(self,packageName,package,context,platformConfig):
         if self.isInstalled(packageName,package,context,platformConfig):
+            print("DEBUG: package '{}' is installed".format(packageName))
             return
         print("DEBUG: packageManagerNpm: installing package '{}'".format(packageName))
         managedPackageName = platformConfig['packageName']
         command = "npm install -g '{}'".format(managedPackageName)
         stdplus.run(command)
 
+class packageManagerPip(packageManager):
+    def isInstalled(self,packageName,package,context,platformConfig):
+        managedPackageName = platformConfig['packageName']
+        command = "pip show '{}' > /dev/null".format(managedPackageName)
+        result = stdplus.run(command,throwOnNonZero = False)
+        return result is 0
+    
+    def installPackage(self,packageName,package,context,platformConfig):
+        if self.isInstalled(packageName,package,context,platformConfig):
+            print("DEBUG: package '{}' is installed".format(packageName))
+            return
+        print("DEBUG: packageManagerPip: installing package '{}'".format(packageName))
+        managedPackageName = platformConfig['packageName']
+        command = "pip install '{}'".format(managedPackageName)
+        stdplus.run(command)
+
 packageManagers ={
     'shell': packageManagerShell()
     , 'homebrew': packageManagerHomebrew()
     , 'npm' : packageManagerNpm()
+    , 'pip' : packageManagerPip()
 }
 
 def fatal(message):

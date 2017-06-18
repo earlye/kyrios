@@ -52,3 +52,40 @@ I Americanized it. Google tells me that if I take my Americanized
 version, `kyrios` and translate it from Greek to English, it means
 `mainly`. Meh. Close enough.
 
+# The Roadmap
+
+The following features are what I think are necessary to get from
+the null-set to a version 1.0:
+
+* A fairly robust set of package information including dependencies.
+Note that dependencies here does not necessarily mean "all the things
+a package depends on," because the front-line package managers typically
+manage that sort of thing and therefore replicating that info here
+would be overkill. Dependencies here really means something more like,
+"You need to install this using package manager 'X'."
+
+* A fairly robust collection of package manager definitions for
+OSX, Linux, and Windows. Windows in particular will be a challenge
+because Cygwin doesn't really have a package manager. This means
+lots of rebooting, probably.
+
+* A fairly robust mechanism for removing packages.
+
+Beyond that:
+
+* It would be nice to see a community form around this, where others
+are providing package definitions and the like.
+
+# Non-goals
+
+* *Complexity-of-use* - I really don't want this to be difficult to
+install or use. I've intentionally kept the dependencies minimal
+(python, pip and python.stdplus.org - installed by pip), so that
+setting up a new box is basically "get python & pip installed, then
+run kyrios.sh."
+
+* *Replacing package manager 'X'* - If you prefer some other package
+manager, that's fine. I'm not trying to replace it. I'm trying to make
+my own life easier. Yes, I'm aware of things like ansible, puppet, and
+chef. No, I'm not going to use them for this problem.
+

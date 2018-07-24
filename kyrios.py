@@ -20,7 +20,7 @@ class packageManagerShell(packageManager):
             result = stdplus.run(command,throwOnNonZero = False)
             return result is 0
         pass
-    
+
     def installPackage(self,packageName,package,context,platformConfig):
         if self.isInstalled(packageName,package,context,platformConfig):
             return
@@ -32,7 +32,7 @@ class packageManagerHomebrew(packageManager):
         command = "brew ls --versions '{}' > /dev/null".format(managedPackageName)
         result = stdplus.run(command,throwOnNonZero = False)
         return result is 0
-    
+
     def installPackage(self,packageName,package,context,platformConfig):
         if self.isInstalled(packageName,package,context,platformConfig):
             return
@@ -47,7 +47,7 @@ class packageManagerNpm(packageManager):
         command = "npm list -g | grep '{}' > /dev/null".format(managedPackageName)
         result = stdplus.run(command,throwOnNonZero = False)
         return result is 0
-    
+
     def installPackage(self,packageName,package,context,platformConfig):
         if self.isInstalled(packageName,package,context,platformConfig):
             return
@@ -72,14 +72,14 @@ def readPackage(filename,context):
     key = os.path.splitext(os.path.basename(filename))[0]
     if not 'platforms' in packageMetadata:
         fatal("Package '{}' does not specify any platforms.".format(filename))
-    
+
     context['packages'][key] = packageMetadata
 
 def requirePackage(packageName,context,visited):
     """ Install a package if it isn't installed. """
     print("DEBUG: requirePackage('{}',context,{})".format(packageName,visited))
 
-    if packageName in visited:        
+    if packageName in visited:
         fatal("Cyclical dependency detected. '{}' is already in '{}'".format(packageName,visited))
 
     # Grab the package definition from the list of packages
@@ -121,7 +121,7 @@ def installPackage(packageName,package,context):
     packageManager = packageManagers[packageManagerName]
     print("DEBUG: found packageManager: '{}': {}".format(packageManagerName,packageManager))
 
-    packageManager.installPackage(packageName,package,context,platformConfig)    
+    packageManager.installPackage(packageName,package,context,platformConfig)
 
 def provision(filename,context):
     profile = yaml.load(open(filename))

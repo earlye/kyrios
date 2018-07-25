@@ -3,4 +3,4 @@ platforms:
   Darwin:
     packageManager: shell
     isInstalled: brew -v > /dev/null
-    
+    installCommand: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

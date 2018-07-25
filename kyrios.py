@@ -33,7 +33,8 @@ class packageManagerShell(packageManager):
 class packageManagerHomebrew(packageManager):
     def isInstalled(self,packageName,package,context,platformConfig):
         managedPackageName = platformConfig['packageName']
-        command = "brew ls --versions '{}' > /dev/null".format(managedPackageName)
+        options = platformConfig['options']
+        command = "brew {} ls --versions '{}' > /dev/null".format(options,managedPackageName)
         result = stdplus.run(command,throwOnNonZero = False)
         return result is 0
 
@@ -43,8 +44,16 @@ class packageManagerHomebrew(packageManager):
             return
         print("DEBUG: packageManagerHomebrew: installing package '{}'".format(packageName))
         managedPackageName = platformConfig['packageName']
-        command = "brew install '{}'".format(managedPackageName)
+        options = platformConfig['options']
+        command = "brew {} install '{}'".format(options,managedPackageName)
         stdplus.run(command)
+        postInstall = platformConfig.get('postInstall',False)
+        if postInstall:
+            stdplus.run(postInstall)
+        if platformConfig.get('exitKyrios',False):
+            print("Package '{}' is installed, but the act of doing that requires running kyrios again. Sorry!".format(packageName))
+            exit(0)
+
 
 class packageManagerNpm(packageManager):
     def isInstalled(self,packageName,package,context,platformConfig):

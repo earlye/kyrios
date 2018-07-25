@@ -15,7 +15,7 @@ npm. But how do you get `npm` installed? Well, you'll have to hunt
 that down, too.
 
 But wait, once you've got all of that installed, I might ask you
-to install `nephele`. And guess what? That's available here: 
+to install `nephele`. And guess what? That's available here:
 https://github.com/earlye/nephele. It's pretty easy to install.
 That is, if you have `pip` available, because `nephele` is written
 in python, and *its* package manager is `pip`.
@@ -31,7 +31,7 @@ itself. So setting up a workstation on which to develop has
 become an annoying hassle. There's got to be a way to
 simplify things. Kyrios is an attempt to do that.
 
-I'm not building Kyrios to _replace_ those package managers. Instead, 
+I'm not building Kyrios to _replace_ those package managers. Instead,
 I just want a single manager to control all the other ones. It would be
 nice if it could make "set up my development box" be as simple as
 `kyrios {my-profile}.yaml`, perhaps repeatedly if there are packages
@@ -47,7 +47,7 @@ Well, actually it's `kýrios`.
 
 No, that's not quite true either. It's `κύριος`.
 
-Well, that's what Google translate tells me anyway. Greek is hard, so 
+Well, that's what Google translate tells me anyway. Greek is hard, so
 I Americanized it. Google tells me that if I take my Americanized
 version, `kyrios` and translate it from Greek to English, it means
 `mainly`. Meh. Close enough.
@@ -71,6 +71,10 @@ lots of rebooting, probably.
 
 * A fairly robust mechanism for removing packages.
 
+* Not written in python, because just setting up python to do
+anything non-trivial is ridiculously difficult. Ideally we'd
+have a single binary file you could run.
+
 Beyond that:
 
 * It would be nice to see a community form around this, where others
@@ -88,4 +92,3 @@ run kyrios.sh."
 manager, that's fine. I'm not trying to replace it. I'm trying to make
 my own life easier. Yes, I'm aware of things like ansible, puppet, and
 chef. No, I'm not going to use them for this problem.
-

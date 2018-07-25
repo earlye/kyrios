@@ -35,14 +35,6 @@ if [[ "${PIP}" == "" ]]; then
     echo "PIP is not installed. Install pip before provisioning."
     echo "try: sudo easy_install pip"
     exit
-else
-    pip_version=$(${PIP} --version 2>&1)
-    if [[ "${pip_version}" < "pip 9.0" ]]; then
-        echo "DEBUG: which pip?:${PIP}"
-        echo "DEBUG: pip_version:${pip_version}"
-        echo "ERROR: Upgrade '${pip_version}' to 9.0 before provisioning."
-        exit
-    fi
 fi
 
 ${PIP} install stdplus

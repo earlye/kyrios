@@ -1,7 +1,0 @@
-description: "PHP: Hypertext Preprocessor"
-webPage: http://php.net/
-platforms:
-  Darwin:
-    dependencies: [ homebrew ]
-    packageManager: homebrew
-    packageName: php56

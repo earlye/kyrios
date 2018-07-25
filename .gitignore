@@ -1,0 +1,7 @@
+kyrios.sh~
+.*
+get-pip.py
+*~
+*.o
+*.d
+kyrios

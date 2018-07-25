@@ -1,0 +1,7 @@
+description: "A terminal multiplexer."
+webPage: http://www.rarlab.com/
+platforms:
+  Darwin:
+    dependencies: [ homebrew ]
+    packageManager: homebrew
+    packageName: unrar

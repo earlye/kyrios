@@ -1,0 +1,7 @@
+description: "A package manager for python stuff."
+webPage: https://pip.pypa.io/
+platforms:
+  Darwin:
+    dependencies: [ python ]
+    packageManager: shell
+    isInstalled: pip --version > /dev/null

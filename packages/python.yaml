@@ -1,0 +1,7 @@
+description: "A programming language."
+webPage: http://www.python.org/
+platforms:
+  Darwin:
+    dependencies: [ homebrew ]
+    packageManager: homebrew
+    packageName: python

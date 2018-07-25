@@ -1,0 +1,32 @@
+# installPackages is a list of packages that you want to have
+# installed.
+
+installPackages:
+  - git-open 
+  - cmake 
+  - duff 
+  - emacs 
+  - ffmpeg 
+  - gnu-tar
+  - imagemagick
+  - nephele
+  - nodejs
+  - php56
+  - python
+  - python3
+  - tmux
+  - unrar
+
+# It's not supported yet, but banPackages is a list of packages that
+# you *don't* want to have installed, or more specifically, that you
+# want to remove if they're present.
+
+banPackages:
+  - somethingEvil
+
+# It's not supported yet, but packageManagers is a list of
+# configurations for the various package managers. For example, if you
+# would like to use https://www.zigg.com/code/brewdo, you might be
+# able to set that up here.
+
+packageManagers:

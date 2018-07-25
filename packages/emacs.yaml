@@ -1,0 +1,7 @@
+description: "An extensible, customizable, free/libre text editor"
+webPage: https://www.gnu.org/software/emacs/
+platforms:
+  Darwin:
+    dependencies: [ homebrew ]
+    packageManager: homebrew
+    packageName: emacs

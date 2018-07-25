@@ -26,6 +26,9 @@ class packageManagerShell(packageManager):
             print("DEBUG: package '{}' is installed".format(packageName))
             return
         print("DEBUG: packageManagerShell: installing package '{}'".format(packageName))
+        command = platformConfig['installCommand']
+        if command:
+            stdplus.run(command)
 
 class packageManagerHomebrew(packageManager):
     def isInstalled(self,packageName,package,context,platformConfig):
@@ -65,7 +68,7 @@ class packageManagerPip(packageManager):
         command = "pip show '{}' > /dev/null".format(managedPackageName)
         result = stdplus.run(command,throwOnNonZero = False)
         return result is 0
-    
+
     def installPackage(self,packageName,package,context,platformConfig):
         if self.isInstalled(packageName,package,context,platformConfig):
             print("DEBUG: package '{}' is installed".format(packageName))
@@ -75,11 +78,11 @@ class packageManagerPip(packageManager):
         command = "pip install '{}'".format(managedPackageName)
         stdplus.run(command)
 
-packageManagers ={
-    'shell': packageManagerShell()
-    , 'homebrew': packageManagerHomebrew()
-    , 'npm' : packageManagerNpm()
-    , 'pip' : packageManagerPip()
+packageManagers = {
+    'shell': packageManagerShell(),
+    'homebrew': packageManagerHomebrew(),
+    'npm' : packageManagerNpm(),
+    'pip' : packageManagerPip()
 }
 
 def fatal(message):

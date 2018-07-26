@@ -2,21 +2,13 @@
 # installed.
 
 installPackages:
-  - git-open 
-  - cmake 
-  - duff 
-  - emacs 
-  - ffmpeg 
-  - gnu-tar
-  - imagemagick
-  - nephele
+  - docker-ce
+  - emacs
+  - git-open
   - nodejs
-  - php56
-  - python
-  - python3
-  - tmux
+  - password-store
   - unrar
-
+    
 # It's not supported yet, but banPackages is a list of packages that
 # you *don't* want to have installed, or more specifically, that you
 # want to remove if they're present.

@@ -1,7 +1,7 @@
-description: "A programming language."
-webPage: http://www.python.org/
+description: 'A programming language.'
+webPage: 'http://www.python.org/'
 platforms:
   Darwin:
-    dependencies: [ homebrew , xcode-cli ]
-    packageManager: homebrew
-    packageName: python3
+    dependencies: [ 'xcode-cli' ]
+    packageManager: 'homebrew'
+    packageName: 'python3'

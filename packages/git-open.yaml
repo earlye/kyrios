@@ -1,9 +1,7 @@
-description: "An extension to git that opens the system web browser for the specified remote"
-webPage: https://github.com/paulirish/git-open
-dependencies:
-  - npm
-  - git
+description: 'An extension to git that opens the system web browser for the specified remote'
+webPage: 'https://github.com/paulirish/git-open'
+dependencies: [ 'npm', 'git' ]
 platforms:
   generic:
-    packageManager: npm
-    packageName: git-open
+    packageManager: 'npm'
+    packageName: 'git-open'

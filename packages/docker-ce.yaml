@@ -1,10 +1,10 @@
-description: "Docker"
-webPage: https://www.docker.com/
+description: 'Docker'
+webPage: 'https://www.docker.com/'
 platforms:
   Darwin:
-    dependencies: [ homebrew ]
-    packageManager: homebrew
-    options: cask
-    packageName: docker
-    postInstall: open -a Docker
+    dependencies: []
+    packageManager: 'homebrew'
+    options: 'cask'
+    packageName: 'docker'
+    postInstall: 'open -a Docker'
     exitKyrios: True

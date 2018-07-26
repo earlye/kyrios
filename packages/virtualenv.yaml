@@ -1,0 +1,8 @@
+description: "virtualenv"
+webPage: https://virtualenv.pypa.io/
+platforms:
+  Darwin:
+    dependencies: [ pip ]
+    packageManager: pip
+    packageName: virtualenv
+    isInstalled: virtualenv --version > /dev/null

@@ -29,13 +29,5 @@ else
     fi
 fi
 
-# Make sure pip is installed
-PIP=$(which pip2 || which pip)
-if [[ "${PIP}" == "" ]]; then
-    echo "PIP is not installed. Install pip before provisioning."
-    echo "try: sudo easy_install pip"
-    exit
-fi
-
-${PIP} install --user stdplus pyyaml
+${PYTHON} src/setup.py install --user
 ${PYTHON} src/kyrios.py $*

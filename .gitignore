@@ -6,5 +6,5 @@ get-pip.py
 *.d
 kyrios
 *.pyc
-dist
-kyrios.egg-info
+dist/
+kyrios.egg-info/

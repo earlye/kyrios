@@ -3,7 +3,7 @@ from packageManager import packageManager
 import logging
 import stdplus
 
-class packageManagerShell(packageManager):
+class packageManagerBash(packageManager):
     def isInstalled(self, packageName, package, context, platformConfig):
         if 'isInstalled' in platformConfig:
             command = platformConfig['isInstalled']
@@ -19,4 +19,3 @@ class packageManagerShell(packageManager):
         command = platformConfig['installCommand']
         if command:
             stdplus.run(command)
-

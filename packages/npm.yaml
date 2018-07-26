@@ -3,5 +3,6 @@ webPage: 'https://www.npmjs.com/'
 dependencies: [ 'nodejs' ]
 platforms:
   generic:
-    packageManager: 'shell'
+    packageManager: 'bash'
     isInstalled: 'npm -v > /dev/null'
+

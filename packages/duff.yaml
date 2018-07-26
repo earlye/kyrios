@@ -2,6 +2,5 @@ description: 'Duplicate File Finder'
 webPage: 'http://duff.dreda.org/'
 platforms:
   Darwin:
-    dependencies: []
     packageManager: 'homebrew'
     packageName: 'duff'

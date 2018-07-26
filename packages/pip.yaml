@@ -3,5 +3,7 @@ webPage: 'https://pip.pypa.io/'
 platforms:
   Darwin:
     dependencies: [ 'python' ]
-    packageManager: 'shell'
+    packageManager: 'bash'
     isInstalled: 'pip --version > /dev/null'
+    
+

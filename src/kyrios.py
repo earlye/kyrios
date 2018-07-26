@@ -1,8 +1,9 @@
 ## Provisioning script
+from packageManagerBash import packageManagerBash
 from packageManagerHomebrew import packageManagerHomebrew
 from packageManagerNpm import packageManagerNpm
+from packageManagerIntrinsic import packageManagerIntrinsic
 from packageManagerPip import packageManagerPip
-from packageManagerShell import packageManagerShell
 
 import argparse
 import glob
@@ -13,8 +14,9 @@ import stdplus
 import yaml
 
 packageManagers = {
-    'shell': packageManagerShell(),
+    'bash': packageManagerBash(),
     'homebrew': packageManagerHomebrew(),
+    'intrinsic': packageManagerIntrinsic(),
     'npm' : packageManagerNpm(),
     'pip' : packageManagerPip()
 }
@@ -32,9 +34,24 @@ def readPackage(filename, context):
 
     context['packages'][key] = packageMetadata
 
+def getInstallPlatform(context, package):
+    installPlatform = context['simplifiedPlatform']
+    if not installPlatform in  package['platforms']:
+        installPlatform = 'generic'
+    if not installPlatform in package['platforms']:
+        fatal("Package '{}' does not support platform '{}'".format(packageName, context['simplifiedPlatform']))
+    return installPlatform
+
+def getPlatformConfig(context, package):
+    installPlatform = getInstallPlatform(context, package)
+    return package['platforms'][installPlatform]
+
 def requirePackage(packageName, context, visited):
     """ Install a package if it isn't installed. """
     logging.debug("requirePackage('{}', context, {})".format(packageName, visited))
+
+    if packageName in context['installedPackages']:
+        return
 
     if packageName in visited:
         fatal("Cyclical dependency detected. '{}' is already in '{}'".format(packageName, visited))
@@ -48,6 +65,10 @@ def requirePackage(packageName, context, visited):
     dependencies = []
     if 'dependencies' in package:
         dependencies.extend(package['dependencies'])
+
+    platformConfig = getPlatformConfig(context,package)
+    packageManagerName = platformConfig['packageManager']
+    dependencies.append(packageManagerName)
 
     # Munge in the platform-dependent dependencies
     simplifiedPlatform = context['simplifiedPlatform']
@@ -63,22 +84,13 @@ def installPackage(packageName, package, context):
     if packageName in context['installedPackages']:
         return
 
-    logging.debug("need to check if package '{}' is installed".format(packageName))
-    simplifiedPlatform = context['simplifiedPlatform']
-    installPlatform = simplifiedPlatform
-    if not installPlatform in  package['platforms']:
-        installPlatform = 'generic'
-    if not installPlatform in package['platforms']:
-        fatal("Package '{}' does not support platform '{}'".format(packageName, simplifiedPlatform))
-
-    platformConfig=package['platforms'][installPlatform]
-    logging.debug("mapped platform '{}' to '{}'".format(simplifiedPlatform, platformConfig))
-
+    platformConfig = getPlatformConfig(context,package)
     packageManagerName = platformConfig['packageManager']
     packageManager = packageManagers[packageManagerName]
     logging.debug("found packageManager: '{}': {}".format(packageManagerName, packageManager))
 
     packageManager.installPackage(packageName, package, context, platformConfig)
+    context['installedPackages'].append(packageName)
 
 def provision(filename, context):
     if not os.path.exists(filename):
@@ -91,7 +103,7 @@ def main():
     context={
         'simplifiedPlatform': platform.system(),
         'packages': {},
-        'installedPackages': []
+        'installedPackages': ['intrinsic']
     }
 
     packageCount = 0

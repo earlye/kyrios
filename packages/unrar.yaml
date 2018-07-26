@@ -2,6 +2,6 @@ description: 'Archived file extractor.'
 webPage: 'http://www.rarlab.com/'
 platforms:
   Darwin:
-    dependencies: []
     packageManager: 'homebrew'
     packageName: 'unrar'
+

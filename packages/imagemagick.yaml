@@ -2,6 +2,6 @@ description: 'Imagemagick'
 webPage: 'https://www.imagemagick.org/'
 platforms:
   Darwin:
-    dependencies: []
     packageManager: 'homebrew'
     packageName: 'imagemagick'
+

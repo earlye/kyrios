@@ -2,7 +2,6 @@ description: 'Docker'
 webPage: 'https://www.docker.com/'
 platforms:
   Darwin:
-    dependencies: []
     packageManager: 'homebrew'
     options: 'cask'
     packageName: 'docker'

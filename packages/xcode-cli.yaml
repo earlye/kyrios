@@ -2,7 +2,6 @@ description: 'Command line tools from XCode'
 webPage: 'https://git-scm.com/'
 platforms:
   Darwin:
-    packageManager: 'shell'
+    packageManager: 'bash'
     isInstalled: 'git --version > /dev/null'
     installCommand: 'xcode-select --install'
-

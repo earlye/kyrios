@@ -99,12 +99,22 @@ def provision(filename, context):
     for package in profile['installPackages']:
         requirePackage(package, context, [])
 
+def argument_parser(defaults):
+    result = argparse.ArgumentParser(description='Kyrios: The Package Manager Manager')
+    result.add_argument('-p', '--profile', dest='profileFilename', help='Profile Filename')
+    result.set_defaults(**defaults)
+    return result
+
 def main():
-    context={
+    context = {
         'simplifiedPlatform': platform.system(),
         'packages': {},
         'installedPackages': ['intrinsic']
     }
+    defaults = {
+        'profileFilename' : os.path.expanduser('~/.kyrios/profile.yaml')
+    }
+    args = argument_parser(defaults).parse_args()
 
     packageCount = 0
     for filename in glob.iglob("packages/*.yaml"):
@@ -113,8 +123,7 @@ def main():
 
     logging.debug("{} packages found".format(packageCount))
 
-    ## TODO: select profile more intelligently than this hard-coding.
-    provision(os.path.expanduser("~/.kyrios/profile.yaml"), context)
+    provision(args.profileFilename, context)
 
 if __name__ == "__main__":
     main()

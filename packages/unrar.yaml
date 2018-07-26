@@ -1,6 +1,7 @@
-description: "A terminal multiplexer."
-webPage: http://www.rarlab.com/
+description: 'Archived file extractor.'
+webPage: 'http://www.rarlab.com/'
 platforms:
   Darwin:
-    packageManager: homebrew
-    packageName: unrar
+    packageManager: 'homebrew'
+    packageName: 'unrar'
+

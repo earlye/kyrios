@@ -1,6 +1,7 @@
-description: "A cross platform solution to record, convert, and stream audio and video."
-webPage: https://ffmpeg.org/
+description: 'A cross platform solution to record, convert, and stream audio and video.'
+webPage: 'https://ffmpeg.org/'
 platforms:
   Darwin:
-    packageManager: homebrew
-    packageName: ffmpeg
+    packageManager: 'homebrew'
+    packageName: 'ffmpeg'
+

@@ -1,6 +1,6 @@
-description: "Duplicate File Finder"
-webPage: http://duff.dreda.org/
+description: 'Duplicate File Finder'
+webPage: 'http://duff.dreda.org/'
 platforms:
   Darwin:
-    packageManager: homebrew
-    packageName: duff
+    packageManager: 'homebrew'
+    packageName: 'duff'

@@ -1,8 +1,8 @@
-description: "A package manager for node.js packages"
-webPage: https://www.npmjs.com/
-dependencies:
-  - nodejs
+description: 'A package manager for node.js packages'
+webPage: 'https://www.npmjs.com/'
+dependencies: [ 'nodejs' ]
 platforms:
   generic:
-    packageManager: bash
-    isInstalled: npm -v > /dev/null
+    packageManager: 'bash'
+    isInstalled: 'npm -v > /dev/null'
+

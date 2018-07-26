@@ -1,0 +1,4 @@
+description: 'A shell'
+platforms:
+  Darwin:
+    packageManager: intrinsic

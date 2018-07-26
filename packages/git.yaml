@@ -3,5 +3,5 @@ webPage: https://git-scm.com/
 test: git --version
 platforms:
   generic:
-    packageManager: shell
+    packageManager: bash
     isInstalled: git --version > /dev/null

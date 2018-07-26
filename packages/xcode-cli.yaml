@@ -3,7 +3,7 @@ webPage: https://git-scm.com/
 test: git --version
 platforms:
   Darwin:
-    packageManager: shell
+    packageManager: bash
     isInstalled: git --version > /dev/null
     installCommand: xcode-select --install
 #

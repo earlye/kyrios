@@ -5,3 +5,4 @@ get-pip.py
 *.o
 *.d
 kyrios
+*.pyc

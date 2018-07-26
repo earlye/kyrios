@@ -2,6 +2,5 @@ description: "The Cloud Nymph"
 webPage: http://github.com/earlye/nephele/
 platforms:
   Darwin:
-    dependencies: [ pip ]
     packageManager: pip
     packageName: nephele

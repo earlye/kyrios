@@ -1,5 +1,5 @@
 ## Provisioning script
-from packageManagerHomebrew import packageManager Homebrew
+from packageManagerHomebrew import packageManagerHomebrew
 from packageManagerNpm import packageManagerNpm
 from packageManagerPip import packageManagerPip
 from packageManagerShell import packageManagerShell

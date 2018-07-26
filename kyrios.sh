@@ -29,5 +29,5 @@ else
     fi
 fi
 
-${PYTHON} src/setup.py install --user
+${PYTHON} src/setup.py --quiet install --user
 ${PYTHON} src/kyrios.py $*

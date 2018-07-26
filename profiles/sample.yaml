@@ -7,6 +7,7 @@ installPackages:
   - git-open
   - nodejs
   - password-store
+  - pip
   - unrar
     
 # It's not supported yet, but banPackages is a list of packages that

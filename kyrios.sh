@@ -38,4 +38,4 @@ if [[ "${PIP}" == "" ]]; then
 fi
 
 ${PIP} install stdplus
-${PYTHON} kyrios.py $*
+${PYTHON} src/kyrios.py $*

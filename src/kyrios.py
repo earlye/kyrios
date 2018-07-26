@@ -35,12 +35,11 @@ def readPackage(filename, context):
     context['packages'][key] = packageMetadata
 
 def getInstallPlatform(context, package):
-    simplifiedPlatform = context['simplifiedPlatform']
-    installPlatform = simplifiedPlatform
+    installPlatform = context['simplifiedPlatform']
     if not installPlatform in  package['platforms']:
         installPlatform = 'generic'
     if not installPlatform in package['platforms']:
-        fatal("Package '{}' does not support platform '{}'".format(packageName, simplifiedPlatform))
+        fatal("Package '{}' does not support platform '{}'".format(packageName, context['simplifiedPlatform']))
     return installPlatform
 
 def getPlatformConfig(context, package):

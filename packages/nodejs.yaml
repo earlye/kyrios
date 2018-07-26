@@ -1,6 +1,7 @@
-description: "A package manager for node.js packages"
-webPage: https://www.nodejs.org/
+description: 'A package manager for node.js packages'
+webPage: 'https://www.nodejs.org'
 platforms:
   Darwin:
-    packageManager: homebrew
-    packageName: node
+    packageManager: 'homebrew'
+    packageName: 'node'
+

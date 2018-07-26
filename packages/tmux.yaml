@@ -1,6 +1,6 @@
-description: "A terminal multiplexer."
-webPage: http://tmux.github.io/
+description: 'A terminal multiplexer.'
+webPage: 'http://tmux.github.io/'
 platforms:
   Darwin:
-    packageManager: homebrew
-    packageName: tmux
+    packageManager: 'homebrew'
+    packageName: 'tmux'

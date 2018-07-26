@@ -1,6 +1,6 @@
-description: "Archive file manager"
-webPage: https://www.gnu.org/software/tar/
+description: 'Archive file manager'
+webPage: 'https://www.gnu.org/software/tar/'
 platforms:
   Darwin:
-    packageManager: homebrew
-    packageName: gnu-tar
+    packageManager: 'homebrew'
+    packageName: 'gnu-tar'

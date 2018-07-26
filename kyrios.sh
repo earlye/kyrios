@@ -37,5 +37,5 @@ if [[ "${PIP}" == "" ]]; then
     exit
 fi
 
-${PIP} install stdplus
+${PIP} install --user stdplus pyyaml
 ${PYTHON} src/kyrios.py $*

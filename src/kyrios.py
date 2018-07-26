@@ -81,6 +81,8 @@ def installPackage(packageName, package, context):
     packageManager.installPackage(packageName, package, context, platformConfig)
 
 def provision(filename, context):
+    if not os.path.exists(filename):
+        fatal("You do not have a profile configured at {}".format(filename))
     profile = yaml.load(open(filename))
     for package in profile['installPackages']:
         requirePackage(package, context, [])

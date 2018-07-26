@@ -7,4 +7,5 @@ platforms:
     options: cask
     packageName: docker
     postInstall: open -a Docker
+    isInstalled: docker --version > /dev/null
     exitKyrios: True

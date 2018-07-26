@@ -1,5 +1,5 @@
 description: "virtualenv"
-webPage: https://virtualenv.pypa.io/en/stable//
+webPage: https://virtualenv.pypa.io/
 platforms:
   Darwin:
     dependencies: [ pip ]

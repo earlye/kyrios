@@ -123,7 +123,6 @@ def main():
 
     logging.debug("{} packages found".format(packageCount))
 
-    ## TODO: select profile more intelligently than this hard-coding.
     provision(args.profileFilename, context)
 
 if __name__ == "__main__":

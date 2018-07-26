@@ -1,0 +1,8 @@
+description: 'Keybase'
+webPage: 'https://www.keybase.io/'
+platforms:
+  Darwin:
+    packageManager: 'homebrew'
+    options: 'cask'
+    packageName: 'keybase'
+

@@ -1,6 +1,5 @@
 description: 'Command line tools from XCode'
 webPage: 'https://git-scm.com/'
-test: 'git --version'
 platforms:
   Darwin:
     packageManager: 'shell'

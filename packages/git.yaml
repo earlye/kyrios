@@ -1,6 +1,5 @@
 description: 'A widely-used revision control system, SVN is for n00bs'
 webPage: 'https://git-scm.com/'
-test: 'git --version'
 platforms:
   generic:
     packageManager: 'shell'

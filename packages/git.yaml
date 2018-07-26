@@ -1,7 +1,6 @@
-description: A widely-used revision control system
-webPage: https://git-scm.com/
-test: git --version
+description: 'A widely-used revision control system, SVN is for n00bs'
+webPage: 'https://git-scm.com/'
 platforms:
   generic:
-    packageManager: shell
-    isInstalled: git --version > /dev/null
+    packageManager: 'shell'
+    isInstalled: 'git --version > /dev/null'

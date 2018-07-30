@@ -1,0 +1,6 @@
+description: 'A Universal Markup Translator'
+webPage: 'https://www.pandoc.org/'
+platforms:
+  Darwin:
+    packageManager: 'homebrew'
+    packageName: 'pandoc'

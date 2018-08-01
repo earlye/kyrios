@@ -95,8 +95,8 @@ chef. No, I'm not going to use them for this problem.
 
 # Used At
 
+![Earnest, LLC logo](docs/earnest.svg)
+
 If your organization is using kyrios, I'd love to hear about it.
 Specifically, I'd love for you to add your company's logo to this section
 via a PR. Thanks in advance!
-
-![Earnest, LLC logo](docs/earnest.svg)

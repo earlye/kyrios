@@ -1,0 +1,6 @@
+description: 'jq is a lightweight and flexible command-line JSON processor.'
+webPage: 'https://stedolan.github.io/jq/'
+platforms:
+  Darwin:
+    packageManager: 'homebrew'
+    packageName: 'jq'

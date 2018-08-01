@@ -1,0 +1,7 @@
+description: 'Youtube video downloader'
+webPage: 'https://rg3.github.io/youtube-dl'
+platforms:
+  Darwin:
+    packageManager: 'homebrew'
+    packageName: 'youtube-dl'
+

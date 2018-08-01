@@ -1,0 +1,9 @@
+description: 'A packager for python apps'
+webPage: 'https://pyinstaller.readthedocs.io/'
+platforms:
+  Darwin:
+    dependencies: [ 'pip.latest', 'python3' ]
+    packageManager: 'pip'
+    pipCommand: 'pip3'
+    packageName: 'pyinstaller'
+

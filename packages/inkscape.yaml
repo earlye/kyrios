@@ -1,0 +1,8 @@
+description: 'Inkscape'
+webPage: 'https://www.inkscape.org/'
+platforms:
+  Darwin:
+    packageManager: 'homebrew'
+    options: 'cask'
+    packageName: 'inkscape'
+

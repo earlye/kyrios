@@ -8,3 +8,4 @@ kyrios
 *.pyc
 dist/
 kyrios.egg-info/
+kyrios.spec

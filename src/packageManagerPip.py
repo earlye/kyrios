@@ -6,7 +6,8 @@ import stdplus
 class packageManagerPip(packageManager):
     def isInstalled(self, packageName, package, context, platformConfig):
         managedPackageName = platformConfig['packageName']
-        command = "pip show '{}' > /dev/null".format(managedPackageName)
+        pip = platformConfig.get('pipCommand','pip')
+        command = "{} show '{}' > /dev/null".format(pip,managedPackageName)
         result = stdplus.run(command, throwOnNonZero = False)
         return result is 0
 
@@ -16,6 +17,6 @@ class packageManagerPip(packageManager):
             return
         logging.debug("{}: installing package '{}'".format(self.__class__.__name__, packageName))
         managedPackageName = platformConfig['packageName']
-        command = "pip install '{}'".format(managedPackageName)
+        pip = platformConfig.get('pipCommand','pip')
+        command = "{} install '{}'".format(pip,managedPackageName)
         stdplus.run(command)
-

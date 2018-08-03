@@ -1,0 +1,10 @@
+description: 'A package manager for python stuff.'
+webPage: 'https://pip.pypa.io/'
+platforms:
+  Darwin:
+    dependencies: ['pip']
+    packageManager: 'bash'
+    isInstalled: 'pip --version | grep 18.0'
+    installCommand: 'pip install --upgrade pip'
+    
+

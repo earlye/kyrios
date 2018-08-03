@@ -95,7 +95,7 @@ chef. No, I'm not going to use them for this problem.
 
 # Used At
 
-[![The New Entity, LLC logo](docs/thenewentity.svg)](http://www.thenewentity.com/)
+[![The New Entity, LLC logo](docs/thenewentity-small.svg)](http://www.thenewentity.com/)
 
 If your organization is using kyrios, I'd love to hear about it.
 Specifically, I'd love for you to add your company's logo to this section

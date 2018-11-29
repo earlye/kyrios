@@ -1,0 +1,7 @@
+description: 'wget'
+webPage: ''
+platforms:
+  Darwin:
+    packageManager: 'homebrew'
+    packageName: 'wget'
+

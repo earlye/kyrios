@@ -1,0 +1,6 @@
+description: 'GNU core utilities'
+webPage: 'https://www.gnu.org/software/coreutils/coreutils.html'
+platforms:
+  Darwin:
+    packageManager: 'homebrew'
+    packageName: 'coreutils'

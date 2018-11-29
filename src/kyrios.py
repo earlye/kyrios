@@ -67,8 +67,9 @@ def requirePackage(packageName, context, visited):
         dependencies.extend(package['dependencies'])
 
     platformConfig = getPlatformConfig(context,package)
-    packageManagerName = platformConfig['packageManager']
-    dependencies.append(packageManagerName)
+    if 'packageManager' in platformConfig:
+        packageManagerName = platformConfig['packageManager']
+        dependencies.append(packageManagerName)
 
     # Munge in the platform-dependent dependencies
     simplifiedPlatform = context['simplifiedPlatform']
@@ -85,12 +86,15 @@ def installPackage(packageName, package, context):
         return
 
     platformConfig = getPlatformConfig(context,package)
-    packageManagerName = platformConfig['packageManager']
-    packageManager = packageManagers[packageManagerName]
-    logging.debug("found packageManager: '{}': {}".format(packageManagerName, packageManager))
+    if 'packageManager' in platformConfig:
+        packageManagerName = platformConfig['packageManager']
+        packageManager = packageManagers[packageManagerName]
+        logging.debug("found packageManager: '{}': {}".format(packageManagerName, packageManager))
 
-    packageManager.installPackage(packageName, package, context, platformConfig)
-    context['installedPackages'].append(packageName)
+        packageManager.installPackage(packageName, package, context, platformConfig)
+        context['installedPackages'].append(packageName)
+    elif not platformConfig.get('installedByDependency', False):
+        logging.warn("Package '{}' is required, but does not specify a `packageManager`, and is not `installedByDependency`.".format(packageName));
 
 def provision(filename, context):
     if not os.path.exists(filename):

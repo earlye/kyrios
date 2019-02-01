@@ -1,0 +1,7 @@
+description: 'InetUtils'
+webPage: 'https://www.gnu.org/software/inetutils/'
+platforms:
+  Darwin:
+    packageManager: 'homebrew'
+    packageName: 'inetutils'
+

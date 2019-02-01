@@ -1,0 +1,6 @@
+description: 'stdbuf'
+webPage: 'https://linux.die.net/man/1/stdbuf/'
+platforms:
+  Darwin:
+    dependencies: ['coreutils']
+    installedByDependency: true

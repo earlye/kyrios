@@ -5,5 +5,5 @@ platforms:
     packageManager: 'homebrew'
     options: 'cask'
     packageName: 'docker'
-    postInstall: 'open -a Docker'
+    postInstall: 'open -a docker'
     exitKyrios: True

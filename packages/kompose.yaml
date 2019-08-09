@@ -1,0 +1,6 @@
+description: 'A conversion tool for all things compose (namely Docker Compose) to container orchestrators (Kubernetes or OpenShift)'
+webPage: 'https://kompose.io/'
+platforms:
+  Darwin:
+    packageManager: 'homebrew'
+    packageName: 'kompose'

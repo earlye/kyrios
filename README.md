@@ -84,7 +84,7 @@ are providing package definitions and the like.
 
 * *Complexity-of-use* - I really don't want this to be difficult to
 install or use. I've intentionally kept the dependencies minimal
-(python, pip and python.stdplus.org - installed by pip), so that
+(python and pip), so that
 setting up a new box is basically "get python & pip installed, then
 run kyrios.sh."
 

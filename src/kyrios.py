@@ -10,7 +10,6 @@ import glob
 import logging
 import os
 import platform
-import stdplus
 import yaml
 
 packageManagers = {
@@ -30,7 +29,7 @@ def readPackage(filename, context):
     packageMetadata = yaml.load(open(filename))
     key = os.path.splitext(os.path.basename(filename))[0]
     if not 'platforms' in packageMetadata:
-        fatal("Package '{}' does not specify any platforms.".format(filename))
+        fatal("Package {} does not specify any platforms.".format(filename))
 
     context['packages'][key] = packageMetadata
 
@@ -39,7 +38,7 @@ def getInstallPlatform(context, package):
     if not installPlatform in  package['platforms']:
         installPlatform = 'generic'
     if not installPlatform in package['platforms']:
-        fatal("Package '{}' does not support platform '{}'".format(packageName, context['simplifiedPlatform']))
+        fatal("Package {} does not support platform {}".format(packageName, context['simplifiedPlatform']))
     return installPlatform
 
 def getPlatformConfig(context, package):
@@ -48,17 +47,17 @@ def getPlatformConfig(context, package):
 
 def requirePackage(packageName, context, visited):
     """ Install a package if it isn't installed. """
-    logging.debug("requirePackage('{}', context, {})".format(packageName, visited))
+    logging.debug("requirePackage({}, context, {})".format(packageName, visited))
 
     if packageName in context['installedPackages']:
         return
 
     if packageName in visited:
-        fatal("Cyclical dependency detected. '{}' is already in '{}'".format(packageName, visited))
+        fatal("Cyclical dependency detected. {} is already in {}".format(packageName, visited))
 
     # Grab the package definition from the list of packages
     if not packageName in context['packages']:
-        logging.warn("The package '{}' is required, but does not have a definition in the 'packages/' directory".format(packageName))
+        logging.warn("The package {} is required, but does not have a definition in the 'packages/' directory".format(packageName))
     package = context['packages'][packageName]
 
     # Read the platform-independent dependencies
@@ -89,12 +88,12 @@ def installPackage(packageName, package, context):
     if 'packageManager' in platformConfig:
         packageManagerName = platformConfig['packageManager']
         packageManager = packageManagers[packageManagerName]
-        logging.debug("found packageManager: '{}': {}".format(packageManagerName, packageManager))
+        logging.debug("found packageManager: {}: {}".format(packageManagerName, packageManager))
 
         packageManager.installPackage(packageName, package, context, platformConfig)
         context['installedPackages'].append(packageName)
     elif not platformConfig.get('installedByDependency', False):
-        logging.warn("Package '{}' is required, but does not specify a `packageManager`, and is not `installedByDependency`.".format(packageName));
+        logging.warn("Package {} is required, but does not specify a `packageManager`, and is not `installedByDependency`.".format(packageName));
 
 def provision(filename, context):
     if not os.path.exists(filename):

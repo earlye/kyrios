@@ -4,5 +4,5 @@ dependencies: [ 'nodejs' ]
 platforms:
   generic:
     packageManager: 'bash'
-    isInstalled: 'npm -v > /dev/null'
+    isInstalled: 'npm -v'
 

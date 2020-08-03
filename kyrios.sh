@@ -8,10 +8,8 @@ function gte() {
 }
 
 
-# Make sure python 2.7 is installed
-# We go w/ 2.7 because that's what's preinstalled on macOS, not because it's a particularly
-# good choice.
-PYTHON=$(which python2 || which python)
+# python3 ships with macOS Catalina
+PYTHON=$(which python3 || which python)
 if [[ "${PYTHON}" == "" ]]; then
     echo "Python is not installed. Install python before provisioning."
     exit
@@ -25,7 +23,7 @@ else
     elif (gte "${python_version}" "Python 2.8"); then
         echo "DEBUG: which python?:${PYTHON}"
         echo "DEBUG: python version:${python_version}"
-        echo "WARN: ${python_version} >= 2.8. Untested python version"
+        echo "DEBUG: ${python_version} >= 2.8. Untested python version"
     fi
 fi
 

@@ -19,7 +19,7 @@ class packageManagerPip(packageManager):
         logging.debug("{}: installing package {}".format(self.__class__.__name__, packageName))
         managedPackageName = platformConfig['packageName']
         pip = platformConfig.get('pipCommand','pip')
-        command = "{} install {}".format(pip,managedPackageName)
-        result = subprocess.run(command.split())
+        command = [pip, "install", managedPackageName]
+        result = subprocess.run(command)
         if result.returncode != 0:
             raise Exception(result.stderr)

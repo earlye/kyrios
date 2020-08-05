@@ -19,6 +19,4 @@ class packageManagerBash(packageManager):
         logging.debug("{}: installing package {}".format(self.__class__.__name__, packageName))
         command = platformConfig['installCommand']
         if command:
-            result = subprocess.run(command.split())
-            if result.returncode != 0:
-                raise Exception(result.stderr)
+            subprocess.run(command.split(), check=True)

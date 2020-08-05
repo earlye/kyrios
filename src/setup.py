@@ -3,5 +3,5 @@ from setuptools import setup
 
 setup(
     name='kyrios',
-    version='0.0.1'
+    version='0.0.2'
 )

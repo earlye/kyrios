@@ -20,10 +20,9 @@ else
         echo "DEBUG: python version:${python_version}"
         echo "ERROR: Upgrade ${python_version} to 2.7 before provisioning."
         exit
-    elif (gte "${python_version}" "Python 2.8"); then
+    elif (gte "${python_version}" "Python 3.7"); then
         echo "DEBUG: which python?:${PYTHON}"
         echo "DEBUG: python version:${python_version}"
-        echo "DEBUG: ${python_version} >= 2.8. Untested python version"
     fi
 fi
 

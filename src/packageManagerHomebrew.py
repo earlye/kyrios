@@ -20,12 +20,10 @@ class packageManagerHomebrew(packageManager):
         managedPackageName = platformConfig['packageName']
         options = platformConfig.get('options', '')
         command = "brew {} install {}".format(options, managedPackageName)
-        subprocess.run(command.split())
+        subprocess.run(command, check=True)
         postInstall = platformConfig.get('postInstall', False)
         if postInstall:
-            result = subprocess.run(postInstall)
-            if result.returncode != 0:
-                raise Exception(result.stderr)
+            subprocess.run(postInstall, check=True)
         if platformConfig.get('exitKyrios', False):
             logging.debug("Package {} is installed, but the act of doing that requires running kyrios again. Sorry!".format(packageName))
             exit(0)

@@ -7,9 +7,9 @@ class packageManagerPip(packageManager):
     def isInstalled(self, packageName, package, context, platformConfig):
         managedPackageName = platformConfig['packageName']
         pip = platformConfig.get('pipCommand','pip')
-        command = "{} show {}".format(pip,managedPackageName)
+        command = [pip, "show", managedPackageName]
         print(command)
-        result = subprocess.run(command.split())
+        result = subprocess.run(command)
         return result.returncode is 0
 
     def installPackage(self, packageName, package, context, platformConfig):
@@ -20,6 +20,4 @@ class packageManagerPip(packageManager):
         managedPackageName = platformConfig['packageName']
         pip = platformConfig.get('pipCommand','pip')
         command = [pip, "install", managedPackageName]
-        result = subprocess.run(command)
-        if result.returncode != 0:
-            raise Exception(result.stderr)
+        subprocess.run(command, check=True)

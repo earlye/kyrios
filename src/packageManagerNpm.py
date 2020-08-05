@@ -6,9 +6,9 @@ import subprocess
 class packageManagerNpm(packageManager):
     def isInstalled(self, packageName, package, context, platformConfig):
         managedPackageName = platformConfig['packageName']
-        command = "npm list -g | grep {}".format(managedPackageName)
+        command = ["npm", "list", "-g", "|", "grep", managedPackageName]
         print(command)
-        result = subprocess.run(command.split())
+        result = subprocess.run(command)
         return result.returncode is 0
 
     def installPackage(self, packageName, package, context, platformConfig):
@@ -17,8 +17,5 @@ class packageManagerNpm(packageManager):
             return
         logging.debug("{}: installing package {}".format(self.__class__.__name__, packageName))
         managedPackageName = platformConfig['packageName']
-        command = "npm install -g {}".format(managedPackageName)
-        result = subprocess.run(command.split())
-        if result.returncode != 0:
-            raise Exception(result.stderr)
-
+        command = ["npm", "install", "-g", managedPackageName]
+        subprocess.run(command, check=True)

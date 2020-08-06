@@ -2,5 +2,5 @@ description: 'A package manager for OSX'
 platforms:
   Darwin:
     packageManager: 'bash'
-    isInstalled: 'brew -v > /dev/null'
+    isInstalled: 'brew -v'
     installCommand: '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'

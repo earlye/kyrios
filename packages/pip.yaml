@@ -4,7 +4,7 @@ platforms:
   Darwin:
     dependencies: [ 'python' ]
     packageManager: 'bash'
-    isInstalled: 'pip --version > /dev/null'
+    isInstalled: 'pip --version'
     installCommand: 'sudo easy_install pip'
     
 

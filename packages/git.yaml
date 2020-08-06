@@ -3,4 +3,4 @@ webPage: 'https://git-scm.com/'
 platforms:
   generic:
     packageManager: 'bash'
-    isInstalled: 'git --version > /dev/null'
+    isInstalled: 'git --version'
